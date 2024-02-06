@@ -14,7 +14,6 @@ def k_nearest_neighbors(X_train, y_train, X_test, k):
         predictions.append(most_common_label)
     return predictions
 
-# Example usage:
 X_train = np.array([[1, 2], [2, 3],[3,2], [3, 4], [4, 5], [5, 6]])
 y_train = np.array([0, 0, 1, 1, 1])
 X_test = np.array([[2, 2], [3, 3]])
