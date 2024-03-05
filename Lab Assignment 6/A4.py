@@ -39,7 +39,7 @@ def train_perceptron(X_train, y_train, activation_function=step_function, alpha=
         if total_error <= convergence_threshold:
             return epoch + 1
 
-    return max_epochs  # If not converged within max_epochs, return max_epochs
+    return max_epochs  
 
 def plot_iterations_vs_learning_rate(X_train, y_train):
     learning_rates = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
@@ -49,7 +49,6 @@ def plot_iterations_vs_learning_rate(X_train, y_train):
         iterations = train_perceptron(X_train, y_train, alpha=alpha)
         iterations_to_converge.append(iterations)
 
-    # Plotting the number of iterations against learning rates
     plt.plot(learning_rates, iterations_to_converge, marker='o')
     plt.xlabel('Learning Rate')
     plt.ylabel('Iterations to Converge')
@@ -72,15 +71,12 @@ def compare_activation_functions(X_train, y_train):
 
 if __name__ == "__main__":
     X_train = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
-    y_train_xor = np.array([0, 1, 1, 0])  # Target labels for XOR gate
+    y_train_xor = np.array([0, 1, 1, 0])
     X_train_normalized = normalize_data(X_train)
 
-    # Exercise A1: Training a Perceptron for XOR Gate Logic with Step Activation Function
     iterations_step = train_perceptron(X_train_normalized, y_train_xor)
     print(f"Iterations to converge with Step activation function: {iterations_step}")
 
-    # Exercise A2: Varying Learning Rates for XOR Gate Logic
     plot_iterations_vs_learning_rate(X_train_normalized, y_train_xor)
 
-    # Exercise A3: Activation Function Comparison for XOR Gate Logic
     compare_activation_functions(X_train_normalized, y_train_xor)

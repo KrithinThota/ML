@@ -31,7 +31,6 @@ class NeuralNetwork:
         error_hidden = delta_output.dot(self.weights_hidden_output.T)
         delta_hidden = error_hidden * self.sigmoid_derivative(self.hidden_output)
         
-        # Update weights and biases        self.weights_hidden_output += self.hidden_output.T.dot(delta_output) * self.learning_rate
         self.bias_hidden_output += np.sum(delta_output) * self.learning_rate
         self.weights_input_hidden += X.T.dot(delta_hidden) * self.learning_rate
         self.bias_input_hidden += np.sum(delta_hidden) * self.learning_rate
@@ -59,11 +58,9 @@ class NeuralNetwork:
 
 import numpy as np
 
-# Generate random binary features
 np.random.seed(42)
 X_train = np.random.randint(0, 2, size=(1000, 2))
 
-# Compute labels for AND gate logic
 y_train = np.array([np.prod(x) for x in X_train]).reshape(-1, 1)
 
 nn = NeuralNetwork(input_size=2, hidden_size=4, output_size=1, learning_rate=0.05)
