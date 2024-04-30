@@ -42,7 +42,6 @@ with open('keypoints.csv', mode='w', newline='') as file:
         
         frame_id += 1
 
-# Release the video capture object
 cap.release()
 
 pose.close()

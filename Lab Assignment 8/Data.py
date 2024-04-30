@@ -2,15 +2,7 @@ import pandas as pd
 import os
 
 def load_preprocess_data(data_dir):
-  """
-  Loads and preprocesses Parkinson's gait data from a directory.
 
-  Args:
-      data_dir (str): Path to the directory containing gait data files (text files).
-
-  Returns:
-      pandas.DataFrame: Preprocessed gait data with features and class labels.
-  """
 
   all_data = pd.DataFrame()
 
